@@ -1,14 +1,20 @@
-import {Descrtiption} from '~/Topic/styles';
+import {Descrtiption, TopicCaption, TopicHeader, TopicTitle} from '~/Topic/styles';
+import {TopicProps} from '~/Topic/types';
 
-const Topic = () => {
+const Topic = (props: TopicProps) => {
+  const {title, caption1, caption2, description} = props;
   return (
     <>
-      <div className="d-flex justify-content-between">
-        <h5>Horizon Value Expert</h5>
-        <h6>2021 — PRESENT UI DIRECTOR</h6>
-      </div>
-      <Descrtiption>Creating wireframe projects for innovative applications. Improving customer relations and creating
-        recruitment campaigns for new positions. Working with a well-coordinated team as remote work.</Descrtiption>
+      <TopicHeader>
+        <TopicTitle>{title.toUpperCase()}</TopicTitle>
+        <TopicCaption>
+          <span>{caption1.toUpperCase()}</span>
+          <span>{caption2.toUpperCase()}</span>
+        </TopicCaption>
+      </TopicHeader>
+      <Descrtiption>
+        {description}
+      </Descrtiption>
     </>
   );
 };
